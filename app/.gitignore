@@ -1,0 +1,57 @@
+# Android Studio
+.idea/
+*.iml
+.gradle/
+local.properties
+.cxx/
+.externalNativeBuild/
+
+# Build outputs
+/build/
+**/build/
+captures/
+outputs/
+
+# Firebase
+firebase-debug.log
+firebase-debug.*
+/app/google-services.json
+/app/firebase-config.json
+
+# Room
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Others
+.DS_Store
+*.apk
+*.ap_
+*.log
+
+# Crashlytics/Performance Monitoring
+crashlytics-build.properties
+
+# Testing
+output.json
+/navigation/
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS generated
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Kotlin/Java
+*.class
+
+# Node (ako slučajno koristiš)
+node_modules/
+
+# Gradle Wrapper
+gradle/wrapper/gradle-wrapper.properties
+gradle/wrapper/gradle-wrapper.jar
