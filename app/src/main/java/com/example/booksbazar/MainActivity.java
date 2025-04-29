@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -38,19 +39,19 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.appBarMain.toolbar);
 
-        binding.appBarMain.addNewButtonID.setOnClickListener(view -> {
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null)
-                    .setAnchorView(R.id.addNewButtonID)
-                    .show();
-        });
+//        binding.appBarMain.addNewButtonID.setOnClickListener(view -> {
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                    .setAction("Action", null)
+//                    .setAnchorView(R.id.addNewButtonID)
+//                    .show();
+//        });
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_profile, R.id.nav_search)
+                R.id.nav_home, R.id.nav_profile, R.id.nav_search, R.id.nav_messages, R.id.nav_edit, R.id.nav_saved, R.id.nav_addNew)
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -62,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
         TextView navEmail = headerView.findViewById(R.id.navLocationID);
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (currentUser != null) {
-            String userId = currentUser.getUid();
+        String userId = currentUser.getUid();
 
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        if (currentUser != null) {
 
             db.collection("users").document(userId).get()
                     .addOnCompleteListener(task -> {
@@ -85,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
             int id = item.getItemId();
 
             if (id == R.id.nav_logout) {
+                db.collection("users").document(userId)
+                        .update("status", "Offline");
                 FirebaseAuth.getInstance().signOut();
                 SharedPreferences prefs = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
@@ -95,8 +98,12 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
 
+            drawer.closeDrawer(GravityCompat.START);
+
             return NavigationUI.onNavDestinationSelected(item, navController) || super.onOptionsItemSelected(item);
+
         });
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
