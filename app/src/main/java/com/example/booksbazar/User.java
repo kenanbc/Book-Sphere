@@ -5,6 +5,7 @@ public class User {
     public String lastName;
     public String email;
     public String location;
+    public String status;
 
     public User() {
     }
@@ -14,6 +15,7 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.location = city;
+        this.status = "Offline";
     }
 }
 
