@@ -93,9 +93,8 @@ public class LogInActivity extends AppCompatActivity {
                                     if (t.isSuccessful()) {
                                         User userInfo = t.getResult().toObject(User.class);
 
-                                        if (userInfo != null) {
-                                            Log.d("FIREBASE", "Name: " + userInfo.firstName);
-                                        }
+                                        db.collection("users").document(userId)
+                                                .update("status", "Online");
 
                                         SharedPreferences prefs = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
                                         SharedPreferences.Editor editor = prefs.edit();
