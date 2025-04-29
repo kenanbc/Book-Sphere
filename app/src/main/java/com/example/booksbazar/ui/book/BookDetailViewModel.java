@@ -1,4 +1,4 @@
-package com.example.booksbazar;
+package com.example.booksbazar.ui.book;
 
 import androidx.lifecycle.ViewModel;
 

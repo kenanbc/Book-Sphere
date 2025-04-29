@@ -1,13 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BookDetailFragment">
+    tools:context=".ui.book.BookDetailFragment">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/imageDetail"
+            android:layout_width="414dp"
+            android:layout_height="358dp"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/titleDetail"
+            android:layout_width="346dp"
+            android:layout_height="50dp"
+            android:hint="Title"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageDetail"
+            app:layout_constraintVertical_bias="0.075" />
+
+        <TextView
+            android:id="@+id/authorDetail"
+            android:layout_width="164dp"
+            android:layout_height="18dp"
+            android:hint="Author"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.064"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleDetail"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/priceDetail"
+            android:layout_width="127dp"
+            android:layout_height="49dp"
+            android:hint="Price"
+            android:textColor="#8BC34A"
+            android:textColorLink="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.056"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stateBookDetail"
+            app:layout_constraintVertical_bias="0.067" />
+
+        <TextView
+            android:id="@+id/nameBookDetail"
+            android:layout_width="184dp"
+            android:layout_height="19dp"
+            android:hint="NameSurname"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.048"
+            app:layout_constraintStart_toEndOf="@+id/openProfileBtn"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.045" />
+
+        <TextView
+            android:id="@+id/locationBookDetail"
+            android:layout_width="184dp"
+            android:layout_height="20dp"
+            android:hint="Location"
+            android:textAlignment="viewStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.048"
+            app:layout_constraintStart_toEndOf="@+id/openProfileBtn"
+            app:layout_constraintTop_toBottomOf="@+id/nameBookDetail"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="191dp"
+            android:layout_height="23dp"
+            android:text="User information:"
+            android:textSize="16sp"
+            android:textStyle="normal|bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.072"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/priceDetail"
+            app:layout_constraintVertical_bias="0.071" />
+
+        <Button
+            android:id="@+id/saveBookDetail"
+            android:layout_width="176dp"
+            android:layout_height="48dp"
+            android:text="Save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/messageBookDetailBtn"
+            app:layout_constraintTop_toBottomOf="@+id/locationBookDetail"
+            app:layout_constraintVertical_bias="0.483" />
+
+        <Button
+            android:id="@+id/messageBookDetailBtn"
+            android:layout_width="176dp"
+            android:layout_height="48dp"
+            android:text="Send message"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/saveBookDetail"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/locationBookDetail"
+            app:layout_constraintVertical_bias="0.483" />
+
+        <TextView
+            android:id="@+id/genreBookDetail"
+            android:layout_width="164dp"
+            android:layout_height="18dp"
+            android:hint="Genre"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.059"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleDetail"
+            app:layout_constraintVertical_bias="0.096" />
+
+        <ImageButton
+            android:id="@+id/openProfileBtn"
+            android:layout_width="47dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/person"
+            app:layout_constraintBottom_toTopOf="@+id/messageBookDetailBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.096" />
+
+        <TextView
+            android:id="@+id/stateBookDetail"
+            android:layout_width="164dp"
+            android:layout_height="18dp"
+            android:hint="State"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.06"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/genreBookDetail"
+            app:layout_constraintVertical_bias="0.034" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
