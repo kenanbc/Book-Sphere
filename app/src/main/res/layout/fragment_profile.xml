@@ -8,60 +8,61 @@
 
     <TextView
         android:id="@+id/nameSurnameProfileID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="207dp"
+        android:layout_height="20dp"
         android:hint="Name"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintHorizontal_bias="0.383"
         app:layout_constraintStart_toEndOf="@+id/profilePictureID"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.092" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <TextView
         android:id="@+id/locationProfileID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="194dp"
+        android:layout_height="21dp"
         android:hint="Location"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintHorizontal_bias="0.315"
         app:layout_constraintStart_toEndOf="@+id/profilePictureID"
         app:layout_constraintTop_toBottomOf="@+id/nameSurnameProfileID"
-        app:layout_constraintVertical_bias="0.047" />
+        app:layout_constraintVertical_bias="0.021" />
 
     <TextView
         android:id="@+id/statusProfileID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="197dp"
+        android:layout_height="20dp"
         android:hint="Status"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintHorizontal_bias="0.328"
         app:layout_constraintStart_toEndOf="@+id/profilePictureID"
         app:layout_constraintTop_toBottomOf="@+id/locationProfileID"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintVertical_bias="0.022" />
 
     <ImageView
         android:id="@+id/profilePictureID"
-        android:layout_width="126dp"
-        android:layout_height="114dp"
+        android:layout_width="92dp"
+        android:layout_height="88dp"
         android:src="@drawable/person"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.106" />
+        app:layout_constraintVertical_bias="0.056" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/booksRecView"
-        android:layout_width="369dp"
-        android:layout_height="508dp"
+        android:layout_width="372dp"
+        android:layout_height="523dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.991" />
+        app:layout_constraintVertical_bias="0.959" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

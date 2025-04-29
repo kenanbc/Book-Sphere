@@ -15,6 +15,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class ProfileViewModel extends ViewModel {
     private final MutableLiveData<String> fullName = new MutableLiveData<>();
     private final MutableLiveData<String> location = new MutableLiveData<>();
+    private final MutableLiveData<String> status = new MutableLiveData<>();
 
     public LiveData<String> getFullName() {
         return fullName;
@@ -22,6 +23,10 @@ public class ProfileViewModel extends ViewModel {
 
     public LiveData<String> getLocation() {
         return location;
+    }
+
+    public LiveData<String> getStatus() {
+        return status;
     }
 
     public void loadUserData() {
@@ -39,6 +44,7 @@ public class ProfileViewModel extends ViewModel {
 
                                 fullName.setValue(userInfo.firstName + " " + userInfo.lastName);
                                 location.setValue(userInfo.location);
+                                status.setValue(userInfo.status);
                             }
                         } else {
                             Log.e("Firestore", "Error fetching user data: ", task.getException());

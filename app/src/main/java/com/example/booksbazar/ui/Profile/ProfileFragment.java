@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,6 +21,7 @@ import com.example.booksbazar.databinding.FragmentProfileBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +42,7 @@ public class ProfileFragment extends Fragment {
 
         TextView nameSurnameTextView = root.findViewById(R.id.nameSurnameProfileID);
         TextView locationTextView = root.findViewById(R.id.locationProfileID);
+        TextView statusTextView = root.findViewById(R.id.statusProfileID);
 
         profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
@@ -51,15 +54,20 @@ public class ProfileFragment extends Fragment {
             locationTextView.setText(loc);
         });
 
+        profileViewModel.getStatus().observe(getViewLifecycleOwner(), loc -> {
+            statusTextView.setText(loc);
+        });
+
         profileViewModel.loadUserData();
 
         mAuth = FirebaseAuth.getInstance();
         currentUserId = mAuth.getCurrentUser().getUid();
 
         recyclerView = root.findViewById(R.id.booksRecView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
         userBooks = new ArrayList<>();
-        bookAdapter = new BookAdapter(getContext(), userBooks);
+        bookAdapter = new BookAdapter(getContext(), userBooks, R.id.action_nav_profile_to_bookDetailFragment);
         recyclerView.setAdapter(bookAdapter);
 
         loadUserBooks();
@@ -76,6 +84,7 @@ public class ProfileFragment extends Fragment {
                     userBooks.clear();
                     for (DocumentSnapshot document : queryDocumentSnapshots) {
                         Book book = document.toObject(Book.class);
+                        book.setBookId(document.getId());
                         userBooks.add(book);
                     }
                     bookAdapter.notifyDataSetChanged();
