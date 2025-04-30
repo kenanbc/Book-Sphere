@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_profile, R.id.nav_search, R.id.nav_messages, R.id.nav_edit, R.id.nav_saved, R.id.nav_addNew)
-                .setOpenableLayout(drawer)
+                .setOpenableLayout(drawer)gt
                 .build();
 
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
