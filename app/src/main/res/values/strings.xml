@@ -11,5 +11,8 @@
     <string name="menu_profile">Profile</string>
     <string name="menu_search">Search</string>
     <string name="menu_messages">Messages</string>
+    <string name="menu_saved">Saved</string>
+    <string name="menu_edit">Edit profile</string>
+    <string name="menu_addNew">Add new book</string>
     <string name="menu_logout">Log Out</string>
 </resources>

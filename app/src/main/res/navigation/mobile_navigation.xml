@@ -9,17 +9,60 @@
         android:id="@+id/nav_home"
         android:name="com.example.booksbazar.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_bookDetailFragment"
+            app:destination="@id/bookDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.example.booksbazar.ui.Profile.ProfileFragment"
         android:label="@string/menu_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_nav_profile_to_bookDetailFragment"
+            app:destination="@id/bookDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_search"
         android:name="com.example.booksbazar.ui.Search.SearchFragment"
         android:label="@string/menu_search"
         tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/nav_messages"
+        android:name="com.example.booksbazar.ui.Messages.MessageFragment"
+        android:label="@string/menu_messages"
+        tools:layout="@layout/fragment_messages" />
+
+    <fragment
+        android:id="@+id/bookDetailFragment"
+        android:name="com.example.booksbazar.ui.book.BookDetailFragment"
+        android:label="Book Detail"
+        tools:layout="@layout/fragment_book_detail" />
+
+    <fragment
+    android:id="@+id/nav_saved"
+    android:name="com.example.booksbazar.ui.saved.SavedFragment"
+    android:label="@string/menu_saved"
+    tools:layout="@layout/fragment_saved" >
+        <action
+            android:id="@+id/action_nav_saved_to_bookDetailFragment"
+            app:destination="@id/bookDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_edit"
+        android:name="com.example.booksbazar.ui.editProfile.EditProfileFragment"
+        android:label="@string/menu_edit"
+        tools:layout="@layout/fragment_edit_profile" />
+
+    <fragment
+        android:id="@+id/nav_addNew"
+        android:name="com.example.booksbazar.ui.addNew.AddNewFragment"
+        android:label="@string/menu_addNew"
+        tools:layout="@layout/fragment_add_new" />
+
 </navigation>

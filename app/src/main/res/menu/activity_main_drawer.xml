@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/logo"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_profile"
-            android:icon="@android:drawable/ic_menu_view"
+            android:icon="@drawable/person"
             android:title="@string/menu_profile" />
         <item
             android:id="@+id/nav_search"
@@ -22,8 +21,20 @@
             android:icon="@android:drawable/sym_action_chat"
             android:title="@string/menu_messages" />
         <item
+            android:id="@+id/nav_saved"
+            android:icon="@android:drawable/ic_menu_save"
+            android:title="@string/menu_saved" />
+        <item
+            android:id="@+id/nav_addNew"
+            android:icon="@android:drawable/ic_menu_add"
+            android:title="@string/menu_addNew" />
+        <item
+            android:id="@+id/nav_edit"
+            android:icon="@android:drawable/ic_menu_edit"
+            android:title="@string/menu_edit" />
+        <item
             android:id="@+id/nav_logout"
-            android:icon="@android:drawable/ic_menu_revert"
+            android:icon="@drawable/round_logout_24"
             android:title="@string/menu_logout" />
     </group>
 </menu>
