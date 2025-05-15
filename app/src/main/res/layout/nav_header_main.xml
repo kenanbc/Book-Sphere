@@ -12,13 +12,13 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
-        android:id="@+id/navUserProfilePhotoID"
-        android:layout_width="78dp"
-        android:layout_height="68dp"
-        android:contentDescription="@string/nav_header_desc"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:scaleType="fitStart"
+    <ImageButton
+        android:id="@+id/drawerProfileImageBtn"
+        android:layout_width="48dp"
+        android:layout_height="73dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:textAlignment="viewEnd"
         app:srcCompat="@drawable/person" />
 
     <TextView
@@ -34,4 +34,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/nav_header_subtitle" />
+
 </LinearLayout>

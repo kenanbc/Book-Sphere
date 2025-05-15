@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SavedFragment extends Fragment {
-
     private RecyclerView recyclerView;
     private BookAdapter bookAdapter;
     private List<Saved> savedList = new ArrayList<>();

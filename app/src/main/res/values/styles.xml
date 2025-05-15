@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="HintTextStyle" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:background">@android:color/transparent</item> <!-- skida bijelu -->
+        <item name="android:textColor">?attr/colorOnBackground</item> <!-- ili neka tvoja boja -->
+    </style>
+
+    <style name="Widget.MyApp.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextAppearance">@style/HintTextStyle</item>
+    </style>
+
+
+</resources>

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,18 +17,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
+public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> implements Filterable {
 
     private Context context;
     private List<Book> bookList;
+    private List<Book> bookListFull;
     private int navActionId;
 
     public BookAdapter(Context context, List<Book> bookList, int navActionId) {
         this.context = context;
         this.bookList = bookList;
         this.navActionId = navActionId;
+        this.bookListFull = new ArrayList<>(bookList);
     }
 
     @NonNull
@@ -54,10 +59,17 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             bundle.putString("bookTitle", book.getTitle());
             bundle.putString("bookAuthor", book.getAuthor());
             bundle.putString("bookImage", book.getImageUrl());
-            bundle.putString("bookPrice", book.getPrice());
+            bundle.putInt("bookPrice", book.getPrice());
             bundle.putString("bookGenre", book.getGenre());
+            bundle.putString("bookCondition", book.getCondition());
             bundle.putString("bookId", book.getBookId());
             bundle.putString("userId", book.getUserId());
+            bundle.putInt("numberOfPages", book.getNumberOfPages());
+            if (book.getRating() != null) {
+                bundle.putFloat("rating", book.getRating());
+            } else {
+                bundle.putFloat("rating", 4.5F);
+            }
 
             NavController navController = Navigation.findNavController(v);
             navController.navigate(navActionId, bundle);
@@ -68,6 +80,54 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     public int getItemCount() {
         return bookList.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return bookFilter;
+    }
+
+    private final Filter bookFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Book> filteredList = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(bookListFull);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for (Book book : bookListFull) {
+                    if (book.getTitle().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(book);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            bookList.clear();
+            bookList.addAll((List<Book>) results.values);
+            notifyDataSetChanged();
+        }
+    };
+
+    public void updateBooks(List<Book> newBooks) {
+        bookList.clear();
+        bookList.addAll(newBooks);
+
+        if (bookListFull == null) {
+            bookListFull = new ArrayList<>(newBooks);
+        } else {
+            bookListFull.clear();
+            bookListFull.addAll(newBooks);
+        }
+
+        notifyDataSetChanged();
+    }
+
+
 
     public static class BookViewHolder extends RecyclerView.ViewHolder {
         ImageView bookImage;
@@ -82,3 +142,4 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         }
     }
 }
+

@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -51,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_profile, R.id.nav_search, R.id.nav_messages, R.id.nav_edit, R.id.nav_saved, R.id.nav_addNew)
-                .setOpenableLayout(drawer)gt
+                R.id.nav_home, R.id.nav_profile, R.id.nav_messages, R.id.nav_edit, R.id.nav_saved, R.id.nav_addNew)
+                .setOpenableLayout(drawer)
                 .build();
 
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
@@ -60,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
         View headerView = navigationView.getHeaderView(0);
         TextView navUsername = headerView.findViewById(R.id.navNameSurnameID);
-        TextView navEmail = headerView.findViewById(R.id.navLocationID);
+        TextView navLocation = headerView.findViewById(R.id.navLocationID);
+        ImageButton profileBtn = headerView.findViewById(R.id.drawerProfileImageBtn);
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         String userId = currentUser.getUid();
@@ -74,13 +78,24 @@ public class MainActivity extends AppCompatActivity {
                             User userInfo = task.getResult().toObject(User.class);
                             if (userInfo != null) {
                                 navUsername.setText(userInfo.firstName + " " + userInfo.lastName);
-                                navEmail.setText(userInfo.email);
+                                navLocation.setText(userInfo.location);
                             }
                         } else {
                             Log.e("Firestore", "Error fetching user data: ", task.getException());
                         }
                     });
         }
+
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawer.closeDrawer(GravityCompat.START);
+
+                MenuItem profileItem = binding.navView.getMenu().findItem(R.id.nav_profile);
+                NavController navController = Navigation.findNavController(MainActivity.this, R.id.nav_host_fragment_content_main);
+                NavigationUI.onNavDestinationSelected(profileItem, navController);
+            }
+        });
 
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();

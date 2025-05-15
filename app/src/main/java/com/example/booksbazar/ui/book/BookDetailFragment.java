@@ -1,14 +1,17 @@
 package com.example.booksbazar.ui.book;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,14 +21,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.booksbazar.MainActivity;
 import com.example.booksbazar.R;
 import com.example.booksbazar.Saved;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import org.w3c.dom.Text;
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class BookDetailFragment extends Fragment {
 
@@ -46,6 +50,9 @@ public class BookDetailFragment extends Fragment {
         ImageView bookImageView = view.findViewById(R.id.imageDetail);
         TextView priceTextView = view.findViewById(R.id.priceDetail);
         TextView genreTextView = view.findViewById(R.id.genreBookDetail);
+        TextView conditionTextView = view.findViewById(R.id.conditionBookDetail);
+        TextView pageNumber = view.findViewById(R.id.numOfPagesDetail);
+        TextView ratingDetail = view.findViewById(R.id.ratingDetail);
 
         nameTextView = view.findViewById(R.id.nameBookDetail);
         locationTextView = view.findViewById(R.id.locationBookDetail);
@@ -59,11 +66,17 @@ public class BookDetailFragment extends Fragment {
         if (bundle != null) {
             titleTextView.setText(bundle.getString("bookTitle"));
             authorTextView.setText(bundle.getString("bookAuthor"));
-            priceTextView.setText(bundle.getString("bookPrice") + " KM");
+            priceTextView.setText(String.valueOf(bundle.getInt("bookPrice")) + " KM");
             genreTextView.setText(bundle.getString("bookGenre"));
+            conditionTextView.setText(bundle.getString("bookCondition"));
+            pageNumber.setText(String.valueOf(bundle.getInt("numberOfPages")));
+            ratingDetail.setText(String.valueOf(bundle.getFloat("rating")) + "/5.0");
 
+            Log.d("Condition", bundle.getString("bookCondition") != null ?  bundle.getString("bookCondition") : "nema");
             Glide.with(this)
                     .load(bundle.getString("bookImage"))
+                    .apply(RequestOptions.bitmapTransform(
+                            new RoundedCornersTransformation(24, 0, RoundedCornersTransformation.CornerType.ALL)))
                     .into(bookImageView);
             fetchUserData(bundle.getString("userId"));
             userId = bundle.getString("userId");
@@ -81,6 +94,29 @@ public class BookDetailFragment extends Fragment {
 
         saveBtn.setOnClickListener(v -> {
             saveOrUnsaveBook(db, bookId, currentUser.getUid(), saveBtn);
+        });
+
+        openProfileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Bundle bundle = new Bundle();
+                bundle.putString("userId", userId);
+
+                NavController navController = NavHostFragment.findNavController(BookDetailFragment.this);
+                navController.navigate(R.id.nav_userProfile, bundle);
+            }
+        });
+
+        sendMessageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("userId", userId);
+
+                NavController navController = NavHostFragment.findNavController(BookDetailFragment.this);
+                navController.navigate(R.id.nav_messages, bundle);
+            }
         });
 
         return view;

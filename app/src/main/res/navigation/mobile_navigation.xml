@@ -9,27 +9,27 @@
         android:id="@+id/nav_home"
         android:name="com.example.booksbazar.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_nav_home_to_bookDetailFragment"
-            app:destination="@id/bookDetailFragment" />
+            app:destination="@id/bookDetailFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.example.booksbazar.ui.Profile.ProfileFragment"
         android:label="@string/menu_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_nav_profile_to_bookDetailFragment"
-            app:destination="@id/bookDetailFragment" />
+            app:destination="@id/bookDetailFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_profile"
+            app:popUpToInclusive="false" />
     </fragment>
-
-    <fragment
-        android:id="@+id/nav_search"
-        android:name="com.example.booksbazar.ui.Search.SearchFragment"
-        android:label="@string/menu_search"
-        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/nav_messages"
@@ -44,13 +44,16 @@
         tools:layout="@layout/fragment_book_detail" />
 
     <fragment
-    android:id="@+id/nav_saved"
-    android:name="com.example.booksbazar.ui.saved.SavedFragment"
-    android:label="@string/menu_saved"
-    tools:layout="@layout/fragment_saved" >
+        android:id="@+id/nav_saved"
+        android:name="com.example.booksbazar.ui.saved.SavedFragment"
+        android:label="@string/menu_saved"
+        tools:layout="@layout/fragment_saved">
         <action
             android:id="@+id/action_nav_saved_to_bookDetailFragment"
-            app:destination="@id/bookDetailFragment" />
+            app:destination="@id/bookDetailFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_saved"
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -64,5 +67,15 @@
         android:name="com.example.booksbazar.ui.addNew.AddNewFragment"
         android:label="@string/menu_addNew"
         tools:layout="@layout/fragment_add_new" />
+
+    <fragment
+        android:id="@+id/nav_userProfile"
+        android:name="com.example.booksbazar.ui.UserProfileFragment"
+        android:label="User Profile"
+        tools:layout="@layout/fragment_user_profile">
+        <action
+            android:id="@+id/action_nav_userProfile_to_bookDetailFragment"
+            app:destination="@id/bookDetailFragment" />
+    </fragment>
 
 </navigation>

@@ -10,78 +10,84 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/editTextText"
-            android:layout_width="284dp"
-            android:layout_height="42dp"
-            android:ems="10"
-            android:hint="Last Name"
-            android:inputType="text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText3"
-            app:layout_constraintVertical_bias="0.062" />
 
-        <EditText
-            android:id="@+id/editTextText2"
-            android:layout_width="277dp"
-            android:layout_height="43dp"
-            android:ems="10"
-            android:hint="Location"
-            android:inputType="text"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout4"
+            android:layout_width="337dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_firstName"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeColor="@color/teal_700"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.477"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText"
-            app:layout_constraintVertical_bias="0.072" />
-
-        <EditText
-            android:id="@+id/editTextTextEmailAddress"
-            android:layout_width="282dp"
-            android:layout_height="43dp"
-            android:ems="10"
-            android:hint="E-mail"
-            android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText2"
-            app:layout_constraintVertical_bias="0.098" />
-
-        <EditText
-            android:id="@+id/editTextTextPassword"
-            android:layout_width="289dp"
-            android:layout_height="46dp"
-            android:ems="10"
-            android:hint="Password"
-            android:inputType="textPassword"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.524"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
-            app:layout_constraintVertical_bias="0.151" />
-
-        <EditText
-            android:id="@+id/editTextText3"
-            android:layout_width="282dp"
-            android:layout_height="43dp"
-            android:ems="10"
-            android:hint="First Name"
-            android:inputType="text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3"
-            app:layout_constraintVertical_bias="0.104" />
+            app:layout_constraintVertical_bias="0.066">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/newFirstNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:inputType="text"
+                android:paddingTop="16dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout6"
+            android:layout_width="337dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_lastName"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeColor="@color/teal_700"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
+            app:layout_constraintVertical_bias="0.048">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/newLastNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:inputType="text"
+                android:paddingTop="16dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/locationDropdownText"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="337dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:hint="@string/input_location"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
+            app:layout_constraintVertical_bias="0.06">
+
+            <AutoCompleteTextView
+                android:id="@+id/locationDropdown"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:inputType="none"
+                android:paddingTop="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/saveProfileBtn"
             android:layout_width="152dp"
             android:layout_height="46dp"
             android:text="Save"
@@ -89,8 +95,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
-            app:layout_constraintVertical_bias="0.225" />
+
+            app:layout_constraintTop_toBottomOf="@+id/locationDropdownText"
+            app:layout_constraintVertical_bias="0.111" />
 
         <ImageView
             android:id="@+id/imageView3"

@@ -54,8 +54,8 @@ public class ProfileFragment extends Fragment {
             locationTextView.setText(loc);
         });
 
-        profileViewModel.getStatus().observe(getViewLifecycleOwner(), loc -> {
-            statusTextView.setText(loc);
+        profileViewModel.getStatus().observe(getViewLifecycleOwner(), status -> {
+            statusTextView.setText(status);
         });
 
         profileViewModel.loadUserData();

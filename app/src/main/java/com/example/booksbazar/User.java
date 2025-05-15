@@ -17,5 +17,11 @@ public class User {
         this.location = city;
         this.status = "Offline";
     }
+
+    public User(String firstName, String lastName, String location) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.location = location;
+    }
 }
 

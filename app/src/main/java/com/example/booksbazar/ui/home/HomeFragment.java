@@ -1,10 +1,13 @@
 package com.example.booksbazar.ui.home;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +23,8 @@ import com.example.booksbazar.R;
 import com.example.booksbazar.databinding.FragmentHomeBinding;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.android.material.textfield.TextInputEditText;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +45,22 @@ public class HomeFragment extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
+        TextInputEditText searchField = root.findViewById(R.id.searchField);
+
+        searchField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+                bookAdapter.getFilter().filter(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {}
+        });
+
+
         recyclerView = root.findViewById(R.id.recyclerViewBooks);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -50,6 +71,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(bookAdapter);
 
         loadBooks();
+        bookAdapter.updateBooks(bookList);
 
         return root;
     }
@@ -59,16 +81,17 @@ public class HomeFragment extends Fragment {
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
+                        List<Book> newList = new ArrayList<>();
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             Book book = document.toObject(Book.class);
                             book.setBookId(document.getId());
-                            bookList.add(book);
+                            newList.add(book);
                         }
-
-                        bookAdapter.notifyDataSetChanged();
+                        bookAdapter.updateBooks(newList);
                     } else {
                         Log.w("Firestore", "Error getting documents.", task.getException());
                     }
                 });
     }
+
 }
