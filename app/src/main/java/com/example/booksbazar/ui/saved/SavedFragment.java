@@ -1,6 +1,5 @@
 package com.example.booksbazar.ui.saved;
 
-import androidx.lifecycle.ViewModelProvider;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,10 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.booksbazar.Book;
-import com.example.booksbazar.BookAdapter;
+import android.widget.TextView;
+
+import com.example.booksbazar.model.Book;
+import com.example.booksbazar.adapter.BookAdapter;
 import com.example.booksbazar.R;
-import com.example.booksbazar.Saved;
+import com.example.booksbazar.model.Saved;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -92,17 +93,12 @@ public class SavedFragment extends Fragment {
                                                 userBooks.add(book);
                                                 bookAdapter.notifyDataSetChanged();
                                             }
+
                                         }
-                                    })
-                                    .addOnFailureListener(e -> {
-                                        Log.w("Firestore", "Error fetching book details", e);
                                     });
                         }
-                    } else {
-                        Log.w("Firestore", "Error getting saved books.", task.getException());
                     }
                 });
     }
-
 }
 

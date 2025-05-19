@@ -7,20 +7,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.booksbazar.Book;
-import com.example.booksbazar.BookAdapter;
+import com.example.booksbazar.model.Book;
+import com.example.booksbazar.adapter.BookAdapter;
 import com.example.booksbazar.R;
-import com.example.booksbazar.databinding.FragmentHomeBinding;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.android.material.textfield.TextInputEditText;
@@ -88,8 +83,6 @@ public class HomeFragment extends Fragment {
                             newList.add(book);
                         }
                         bookAdapter.updateBooks(newList);
-                    } else {
-                        Log.w("Firestore", "Error getting documents.", task.getException());
                     }
                 });
     }

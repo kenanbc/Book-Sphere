@@ -2,7 +2,7 @@
     <string name="app_name">BookSphere</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_title">BookSphere</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Postavke</string>
@@ -15,7 +15,10 @@
     <string name="menu_edit">Uredi informacije</string>
     <string name="menu_addNew">Dodaj novu knjigu</string>
     <string name="menu_logout">Odjavi se</string>
+    <string name="logIn">Prijavi se</string>
+    <string name="notHavingAccount">Nemate račun?</string>
     <string name="user_information">Korisničke informacije</string>
+    <string name="bookDetailTitle">Knjiga</string>
     <string name="genreSC">Žanr:</string>
     <string name="genre">Žanr</string>
     <string name="conditionSC">Stanje:</string>
@@ -32,15 +35,54 @@
     <string name="imageUrl">URL fotografije</string>
     <string name="numOfPages">Broj stranica</string>
     <string name="rating">Ocjena</string>
+    <string name="email">E-mail</string>
+    <string name="password">Lozinka</string>
+    <string name="termsAndConditions">Slažem se sa odredbama i uslovima</string>
+    <string name="pleaseTermsAndConditions">Morate prihvatiti uslove i odredbe</string>
+    <string name="register">Registruj se</string>
+    <string name="fillFields">Popunite sva polja</string>
+    <string name="bookDelete">"Brisanje knjige"</string>
+    <string name="bookDeleteValidate">"Jeste li sigurni da želite obrisati ovu knjigu?"</string>
+    <string name="yesValidation">Da</string>
+    <string name="noValidation">Ne</string>
+    <string name="success">Uspješno</string>
+    <string name="error">Greška</string>
+    <string name="notLoggedIn">Korisnik nije prijavljen!</string>
+    <string name="deletedSuccess">Uspješno obrisano!</string>
+    <string name="unsaveBook">Poništi spremanje</string>
+    <string name="delete">Obriši</string>
+    <string name="edit">Uredi</string>
+    <string name="emailPasswordError">Vaš e-mail ili lozinka nisu tačni!</string>
+    <string name="terms">Uslovi i odredbe</string>
 
     <string-array name="genres_array">
-        <item>Roman</item>
-        <item>Naučna fantastika</item>
-        <item>Triler</item>
         <item>Biografija</item>
-        <item>Historija</item>
-        <item>Poezija</item>
         <item>Djeca</item>
+        <item>Drama</item>
+        <item>Enciklopedije</item>
+        <item>Eseji</item>
+        <item>Fantastika</item>
+        <item>Filozofija</item>
+        <item>Historija</item>
+        <item>Horor</item>
+        <item>Humor</item>
+        <item>Klasiсi</item>
+        <item>Kriminalistički roman</item>
+        <item>Ljubavni roman</item>
+        <item>Mitologija</item>
+        <item>Misterija</item>
+        <item>Motivacija</item>
+        <item>Naučna fantastika</item>
+        <item>Naučno-popularna literatura</item>
+        <item>Politička literatura</item>
+        <item>Poezija</item>
+        <item>Psihologija</item>
+        <item>Putopisi</item>
+        <item>Religija</item>
+        <item>Roman</item>
+        <item>Samopomoć</item>
+        <item>Strip</item>
+        <item>Triler</item>
     </string-array>
 
     <string-array name="condition_array">
@@ -49,16 +91,45 @@
     </string-array>
 
     <string-array name="location_array">
+        <item>Banovići</item>
+        <item>Banja Luka</item>
+        <item>Bihać</item>
+        <item>Bijeljina</item>
+        <item>Bileća</item>
+        <item>Bosanski Brod</item>
+        <item>Bosanska Gradiška</item>
+        <item>Bratunac</item>
+        <item>Brčko</item>
+        <item>Bugojno</item>
+        <item>Bužim</item>
+        <item>Cazin</item>
+        <item>Čelić</item>
+        <item>Derventa</item>
+        <item>Doboj</item>
+        <item>Donji Vakuf</item>
+        <item>Foča</item>
+        <item>Fojnica</item>
+        <item>Goražde</item>
+        <item>Gračanica</item>
+        <item>Gradačac</item>
+        <item>Ilijaš</item>
+        <item>Jablanica</item>
+        <item>Jajce</item>
+        <item>Kakanj</item>
+        <item>Kalesija</item>
+        <item>Kladanj</item>
+        <item>Klokotnica</item>
+        <item>Konjic</item>
+        <item>Laktaši</item>
+        <item>Lukavac</item>
+        <item>Maglaj</item>
+        <item>Mostar</item>
+        <item>Neum</item>
+        <item>Novi Travnik</item>
+        <item>Olovo</item>
+        <item>Orašje</item>
         <item>Sarajevo</item>
         <item>Tuzla</item>
-        <item>Doboj</item>
-        <item>Bihać</item>
-        <item>Mostar</item>
-        <item>Gračanica</item>
-        <item>Klokotnica</item>
-        <item>Banja Luka</item>
-        <item>Konjic</item>
-        <item>Travnik</item>
     </string-array>
 
 </resources>

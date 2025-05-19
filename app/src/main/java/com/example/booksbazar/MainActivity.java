@@ -7,11 +7,10 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.example.booksbazar.model.User;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.core.view.GravityCompat;
@@ -42,12 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.appBarMain.toolbar);
 
-//        binding.appBarMain.addNewButtonID.setOnClickListener(view -> {
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                    .setAction("Action", null)
-//                    .setAnchorView(R.id.addNewButtonID)
-//                    .show();
-//        });
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
@@ -80,8 +73,6 @@ public class MainActivity extends AppCompatActivity {
                                 navUsername.setText(userInfo.firstName + " " + userInfo.lastName);
                                 navLocation.setText(userInfo.location);
                             }
-                        } else {
-                            Log.e("Firestore", "Error fetching user data: ", task.getException());
                         }
                     });
         }

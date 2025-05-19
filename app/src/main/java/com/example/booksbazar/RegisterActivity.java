@@ -1,7 +1,10 @@
 package com.example.booksbazar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -13,6 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.booksbazar.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -20,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private EditText firstNameInput;
     private EditText lastNameInput;
-    private EditText cityInput;
+    private AutoCompleteTextView cityInput;
     private EditText emailInput;
     private EditText passwordInput;
     private CheckBox terms;
@@ -39,11 +43,15 @@ public class RegisterActivity extends AppCompatActivity {
 
         firstNameInput = findViewById(R.id.firstNameInputID);
         lastNameInput = findViewById(R.id.lastNameInputID);
-        cityInput = findViewById(R.id.cityInputID);
+        cityInput = findViewById(R.id.locationDropdown);
         emailInput = findViewById(R.id.emailInputID);
         passwordInput = findViewById(R.id.passwordInputRegID);
         terms = findViewById(R.id.termsID);
         registerBtn = findViewById(R.id.registerBtnID);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.location_array, android.R.layout.simple_spinner_dropdown_item);
+
+        cityInput.setAdapter(adapter);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,12 +64,12 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() ||
                         password.isEmpty() || city.isEmpty()) {
-                    Toast.makeText(RegisterActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, getString(R.string.fillFields), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (!terms.isChecked()) {
-                    Toast.makeText(RegisterActivity.this, "You must agree with the Terms", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, getString(R.string.pleaseTermsAndConditions), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -86,16 +94,22 @@ public class RegisterActivity extends AppCompatActivity {
                         db.collection("users").document(userId)
                                 .set(user)
                                 .addOnSuccessListener(aVoid -> {
-                                    Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), getString(R.string.success), Toast.LENGTH_SHORT).show();
+                                    changeToLogin();
                                 })
                                 .addOnFailureListener(e -> {
-                                    Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), getString(R.string.error), Toast.LENGTH_SHORT).show();
                                 });
                     } else {
-                        Toast.makeText(getApplicationContext(), "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.error), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
+    private void changeToLogin(){
+        Intent intent = new Intent(RegisterActivity.this, LogInActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.editProfile.EditProfileFragment">
+    tools:context=".ui.editprofile.EditProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -90,7 +90,7 @@
             android:id="@+id/saveProfileBtn"
             android:layout_width="152dp"
             android:layout_height="46dp"
-            android:text="Save"
+            android:text="@string/saveBook"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"

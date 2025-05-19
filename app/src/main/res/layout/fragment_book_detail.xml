@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.book.BookDetailFragment">
+    tools:context=".ui.bookdetail.BookDetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -171,7 +171,7 @@
                 android:id="@+id/imageView10"
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
-                android:tint="#243642"
+                android:tint="#F8F9FA"
                 app:srcCompat="@drawable/star_rate_24px" />
 
             <TextView
@@ -180,13 +180,14 @@
                 android:layout_height="54dp"
                 android:text="4.5/5"
                 android:textAlignment="center"
+                android:textColor="#F8F7F7"
                 android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/imageView11"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:tint="#243642"
+                android:tint="#F5F7F8"
                 app:srcCompat="@drawable/description_24px" />
 
             <TextView
@@ -195,6 +196,7 @@
                 android:layout_height="37dp"
                 android:text="821"
                 android:textAlignment="center"
+                android:textColor="#FBF7F7"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -202,7 +204,7 @@
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/genre"
+            android:text="@string/genreSC"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/conditionBookDetail"
             app:layout_constraintStart_toStartOf="@+id/textView8"
@@ -213,7 +215,7 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/condition"
+            android:text="@string/conditionSC"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/textView"
@@ -234,6 +236,33 @@
             app:layout_constraintStart_toEndOf="@+id/imageDetail"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
             app:layout_constraintVertical_bias="0.036" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/conditionBookDetail"
+            tools:layout_editor_absoluteX="1dp" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toTopOf="@+id/messageBookDetailBtn"
+            app:layout_constraintTop_toBottomOf="@+id/locationBookDetail"
+            tools:layout_editor_absoluteX="1dp" />
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toTopOf="@+id/genreBookDetail"
+            app:layout_constraintTop_toBottomOf="@+id/authorDetail"
+            tools:layout_editor_absoluteX="1dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

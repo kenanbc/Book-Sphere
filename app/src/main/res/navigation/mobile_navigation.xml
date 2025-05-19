@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.booksbazar.ui.Profile.ProfileFragment"
+        android:name="com.example.booksbazar.ui.profile.ProfileFragment"
         android:label="@string/menu_profile"
         tools:layout="@layout/fragment_profile">
         <action
@@ -33,15 +33,25 @@
 
     <fragment
         android:id="@+id/nav_messages"
-        android:name="com.example.booksbazar.ui.Messages.MessageFragment"
+        android:name="com.example.booksbazar.ui.messages.MessagesFragment"
         android:label="@string/menu_messages"
         tools:layout="@layout/fragment_messages" />
 
     <fragment
         android:id="@+id/bookDetailFragment"
-        android:name="com.example.booksbazar.ui.book.BookDetailFragment"
-        android:label="Book Detail"
-        tools:layout="@layout/fragment_book_detail" />
+        android:name="com.example.booksbazar.ui.bookdetail.BookDetailFragment"
+        android:label="@string/bookDetailTitle"
+        tools:layout="@layout/fragment_book_detail" >
+        <action
+            android:id="@+id/action_bookDetailFragment_to_fragment_chat"
+            app:destination="@id/fragment_chat" />
+        <action
+            android:id="@+id/action_bookDetailFragment_to_editBookFragment"
+            app:destination="@id/editBookFragment" />
+        <action
+            android:id="@+id/action_bookDetailFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_saved"
@@ -58,24 +68,42 @@
 
     <fragment
         android:id="@+id/nav_edit"
-        android:name="com.example.booksbazar.ui.editProfile.EditProfileFragment"
+        android:name="com.example.booksbazar.ui.editprofile.EditProfileFragment"
         android:label="@string/menu_edit"
         tools:layout="@layout/fragment_edit_profile" />
 
     <fragment
         android:id="@+id/nav_addNew"
-        android:name="com.example.booksbazar.ui.addNew.AddNewFragment"
+        android:name="com.example.booksbazar.ui.addnewbook.AddNewFragment"
         android:label="@string/menu_addNew"
         tools:layout="@layout/fragment_add_new" />
 
     <fragment
         android:id="@+id/nav_userProfile"
-        android:name="com.example.booksbazar.ui.UserProfileFragment"
-        android:label="User Profile"
+        android:name="com.example.booksbazar.ui.userprofile.UserProfileFragment"
+        android:label="@string/menu_profile"
         tools:layout="@layout/fragment_user_profile">
         <action
             android:id="@+id/action_nav_userProfile_to_bookDetailFragment"
             app:destination="@id/bookDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_chat"
+        android:name="com.example.booksbazar.ui.chat.ChatFragment"
+        android:label="@string/menu_messages"
+        tools:layout="@layout/fragment_chat" />
+
+    <fragment
+        android:id="@+id/editBookFragment"
+        android:name="com.example.booksbazar.ui.editbook.EditBookFragment"
+        android:label="@string/menu_edit"
+        tools:layout="@layout/fragment_edit_book" >
+        <action
+            android:id="@+id/action_editBookFragment_to_bookDetailFragment"
+            app:destination="@id/bookDetailFragment"
+            app:popUpTo="@id/editBookFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>

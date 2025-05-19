@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:fillViewport="true"
-tools:context=".ui.addnewbook.AddNewFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.editbook.EditBookFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/editBookFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
@@ -16,7 +17,7 @@ tools:context=".ui.addnewbook.AddNewFragment">
             android:id="@+id/addNewBookBtn"
             android:layout_width="242dp"
             android:layout_height="56dp"
-            android:text="@string/menu_addNew"
+            android:text="@string/saveBook"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
@@ -100,7 +101,7 @@ tools:context=".ui.addnewbook.AddNewFragment">
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
                 android:inputType="none"
-                android:paddingTop="10dp"/>
+                android:paddingTop="10dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -204,7 +205,7 @@ tools:context=".ui.addnewbook.AddNewFragment">
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
                 android:inputType="none"
-                android:paddingTop="10dp"/>
+                android:paddingTop="10dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
