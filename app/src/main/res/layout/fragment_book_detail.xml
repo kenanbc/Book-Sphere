@@ -104,7 +104,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/messageBookDetailBtn"
             app:layout_constraintTop_toBottomOf="@+id/locationBookDetail"
-            app:layout_constraintVertical_bias="0.344" />
+            app:layout_constraintVertical_bias="0.586" />
 
         <Button
             android:id="@+id/messageBookDetailBtn"
@@ -117,7 +117,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/locationBookDetail"
-            app:layout_constraintVertical_bias="0.333" />
+            app:layout_constraintVertical_bias="0.586" />
 
         <TextView
             android:id="@+id/genreBookDetail"
@@ -135,13 +135,13 @@
             android:id="@+id/openProfileBtn"
             android:layout_width="47dp"
             android:layout_height="43dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="16dp"
             android:scaleType="fitCenter"
             android:src="@drawable/person"
             app:layout_constraintBottom_toTopOf="@+id/messageBookDetailBtn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.189" />
+            app:layout_constraintVertical_bias="0.109" />
 
         <TextView
             android:id="@+id/conditionBookDetail"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,27 +7,23 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:fillViewport="true"
-        >
-
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="0dp"
             android:layout_height="140dp"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/logo"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.028"
+            app:srcCompat="@drawable/logo" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/firstNameR"
-            android:layout_width="0dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="@string/input_firstName"
             app:boxBackgroundMode="outline"
@@ -50,7 +46,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/lastNameR"
-            android:layout_width="0dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="@string/input_lastName"
             app:boxBackgroundMode="outline"
@@ -74,7 +70,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/locationDropdownText"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="0dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="@string/input_location"
             app:boxCornerRadiusTopStart="12dp"
@@ -95,7 +91,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailR"
-            android:layout_width="0dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="@string/email"
             app:boxBackgroundMode="outline"
@@ -118,7 +114,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordR"
-            android:layout_width="0dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="@string/password"
             app:boxBackgroundMode="outline"
@@ -162,5 +158,26 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="537dp"
+        android:layout_height="171dp"
+        android:layout_marginTop="8dp"
+
+        android:rotation="180"
+        app:layout_constraintTop_toBottomOf="@+id/registerBtnID"
+        app:srcCompat="@drawable/tilt"
+        tools:layout_editor_absoluteX="-50dp" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="389dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="52dp"
+        android:rotation="180"
+        android:rotationY="180"
+        app:layout_constraintTop_toBottomOf="@+id/registerBtnID"
+        app:srcCompat="@drawable/tiltb"
+        tools:layout_editor_absoluteX="25dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
