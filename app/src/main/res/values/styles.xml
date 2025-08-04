@@ -2,8 +2,8 @@
 
 <resources>
     <style name="HintTextStyle" parent="TextAppearance.MaterialComponents.Caption">
-        <item name="android:background">@android:color/transparent</item> <!-- skida bijelu -->
-        <item name="android:textColor">?attr/colorOnBackground</item> <!-- ili neka tvoja boja -->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
     </style>
 
     <style name="Widget.MyApp.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
